@@ -1,0 +1,15 @@
+.env
+.env.local
+.venv/
+.vercel/
+staticfiles/
+__pycache__/
+*.pyc
+*.sqlite3
+# Rapports générés : ils contiennent des valeurs issues de vos vraies données
+docs/migration_report*
+# Les originaux (ZIP + dump) restent HORS du projet : ne jamais les copier ici
+*.sql
+*.zip
+!apps/core/tests/fixtures/*.sql
+.env.bak-*

@@ -1,0 +1,3 @@
+-r requirements.txt
+pypdf>=4.0              # lecture des PDF dans les tests (jalon J2)
+pillow>=10.0            # contrôle des marges des PDF sur le rendu image (déjà installé avec reportlab)

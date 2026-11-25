@@ -1,0 +1,9 @@
+# Fins de ligne : LF partout, sauf les fichiers .bat de Windows (CRLF obligatoire pour cmd.exe)
+* text=auto eol=lf
+*.bat text eol=crlf
+
+# Fichiers binaires : jamais transformés
+*.ttf binary
+*.png binary
+*.pdf binary
+*.zip binary
