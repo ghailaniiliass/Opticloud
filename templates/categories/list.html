@@ -1,0 +1,67 @@
+{% extends "layouts/module_list.html" %}
+
+{% block title %}Liste des catégories{% endblock %}
+
+{% block hero_icon %}bi-grid-3x3-gap-fill{% endblock %}
+{% block hero_title %}Gestion des catégories{% endblock %}
+{% block hero_text %}Organisez vos produits optiques avec des catégories claires et faciles à gérer.{% endblock %}
+
+{% block list_title %}Liste des catégories{% endblock %}
+{% block list_subtitle %}Consultez, modifiez ou supprimez les catégories existantes.{% endblock %}
+{% block add_url %}{% url 'categories:add' %}{% endblock %}
+{% block print_url %}{% url 'categories:print' %}{% endblock %}
+
+{% block stat_icon %}bi-folder2-open{% endblock %}
+{% block stat_label %}Nombre de catégories{% endblock %}
+
+{% block table_head %}
+                            <th>ID catégorie</th>
+                            <th>Nom catégorie</th>
+                            <th width="140">Actions</th>
+{% endblock %}
+
+{% block table_rows %}
+                            {% for categorie in objects %}
+                                <tr>
+                                    <td class="text-center">
+                                        <span class="id-pill">
+                                            <i class="bi bi-hash"></i>
+                                            {{ categorie.id_categorie }}
+                                        </span>
+                                    </td>
+
+                                    <td>
+                                        <div class="category-name">
+                                            {{ categorie.nom_categorie }}
+                                        </div>
+
+                                        <div class="category-sub">
+                                            Catégorie produit optique
+                                        </div>
+                                    </td>
+
+                                    <td class="text-center">
+
+                                        <!-- Modifier -->
+                                        <a href="{% url 'categories:edit' categorie.pk %}"
+                                           class="action-btn edit-btn"
+                                           title="Modifier">
+                                            <i class="bi bi-pencil-square"></i>
+                                        </a>
+
+                                        <!-- Supprimer -->
+                                        <a href="{% url 'categories:delete' categorie.pk %}"
+                                           class="action-btn delete-btn"
+                                           title="Supprimer"
+                                           data-confirm="Confirmer la suppression ?">
+                                            <i class="bi bi-trash"></i>
+                                        </a>
+
+                                    </td>
+                                </tr>
+                            {% endfor %}
+{% endblock %}
+
+{% block empty_icon %}bi-folder-x{% endblock %}
+{% block empty_title %}Aucune catégorie trouvée{% endblock %}
+{% block empty_text %}Commencez par ajouter une nouvelle catégorie.{% endblock %}

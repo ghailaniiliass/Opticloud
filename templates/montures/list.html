@@ -1,0 +1,105 @@
+{% extends "layouts/module_list.html" %}
+{% load static %}
+{% load l10n %}
+
+{% block title %}Liste des montures{% endblock %}
+{% block body_class %}page-list page-montures{% endblock %}
+{% block head_css %}{{ block.super }}<link href="{% static 'css/module_montures.css' %}" rel="stylesheet">{% endblock %}
+
+{% block hero_icon %}bi-eyeglasses{% endblock %}
+{% block hero_title %}Gestion des montures{% endblock %}
+{% block hero_text %}Gérez les références, modèles, couleurs, matériaux, prix et stock des montures.{% endblock %}
+
+{% block list_title %}Liste des montures{% endblock %}
+{% block list_subtitle %}Consultez, modifiez ou supprimez les montures existantes.{% endblock %}
+{% block add_url %}{% url 'montures:add' %}{% endblock %}
+{% block print_url %}{% url 'montures:print' %}{% endblock %}
+
+{% block stat_icon %}bi-eyeglasses{% endblock %}
+{% block stat_label %}Nombre de montures{% endblock %}
+
+{% block table_head %}
+                            <th>ID</th>
+                            <th>Référence</th>
+                            <th>Modèle</th>
+                            <th>Couleur</th>
+                            <th>Matériau</th>
+                            <th>Genre</th>
+                            <th>Prix</th>
+                            <th>Stock</th>
+                            <th width="140">Actions</th>
+{% endblock %}
+
+{% block table_rows %}
+                            {% for monture in objects %}
+                                <tr>
+                                    <td class="text-center">
+                                        <span class="id-pill">
+                                            <i class="bi bi-hash"></i>
+                                            {{ monture.idmonture }}
+                                        </span>
+                                    </td>
+                                    <td class="text-center">
+                                        <span class="reference-pill">
+                                            <i class="bi bi-upc-scan"></i>
+                                            {{ monture.reference }}
+                                        </span>
+                                    </td>
+                                    <td>
+                                        <div class="model-name">
+                                            {{ monture.modele|default_if_none:"" }}
+                                        </div>
+                                        <div class="model-sub">
+                                            Monture optique
+                                        </div>
+                                    </td>
+                                    <td class="text-center">
+                                        <span class="color-pill">
+                                            <i class="bi bi-palette"></i>
+                                            {{ monture.couleur|default_if_none:"" }}
+                                        </span>
+                                    </td>
+                                    <td class="text-center">
+                                        <span class="material-pill">
+                                            {{ monture.materiau|default_if_none:"" }}
+                                        </span>
+                                    </td>
+                                    <td class="text-center">
+                                        <span class="gender-pill">
+                                            <i class="bi bi-person"></i>
+                                            {{ monture.genre|default_if_none:"" }}
+                                        </span>
+                                    </td>
+                                    <td class="text-center">
+                                        <span class="price-pill">
+                                            {{ monture.prix|default_if_none:""|unlocalize }} DH
+                                        </span>
+                                    </td>
+                                    <td class="text-center">
+                                        <span class="stock-pill">
+                                            {{ monture.stock|default_if_none:"" }}
+                                        </span>
+                                    </td>
+                                    <td class="text-center">
+                                        <!-- Modifier -->
+                                        <a href="{% url 'montures:edit' monture.pk %}"
+                                           class="action-btn edit-btn"
+                                           title="Modifier">
+                                            <i class="bi bi-pencil-square"></i>
+                                        </a>
+                                        <!-- Supprimer -->
+                                        <a href="{% url 'montures:delete' monture.pk %}"
+                                           class="action-btn delete-btn"
+                                           title="Supprimer"
+                                           data-confirm="Confirmer la suppression ?">
+                                            <i class="bi bi-trash"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                            {% endfor %}
+{% endblock %}
+
+{% block colspan %}9{% endblock %}
+{% block empty_icon %}bi-eyeglasses{% endblock %}
+{% block empty_title %}Aucune monture trouvée{% endblock %}
+{% block empty_text %}Commencez par ajouter une nouvelle monture.{% endblock %}

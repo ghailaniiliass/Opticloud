@@ -1,0 +1,48 @@
+{% extends "base_module.html" %}
+
+{% block body_class %}bg-light{% endblock %}
+
+{% block body %}
+<div class="container mt-5">
+
+    <div class="col-md-6 mx-auto">
+        {% include "partials/back_to_dashboard.html" %}
+    </div>
+
+    <div class="card shadow col-md-6 mx-auto">
+        <div class="card-header {% block header_class %}{% endblock %}">
+            <h4 class="mb-0">
+                <i class="bi {% block header_icon %}{% endblock %}"></i> {% block header_title %}{% endblock %}
+            </h4>
+        </div>
+
+        <div class="card-body">
+
+            <form method="post">
+                {% csrf_token %}
+
+                {% if form.non_field_errors %}
+                <div class="alert alert-danger" role="alert">
+                    {% for error in form.non_field_errors %}{{ error }}{% if not forloop.last %}<br>{% endif %}{% endfor %}
+                </div>
+                {% endif %}
+
+                {% block fields %}{% endblock %}
+
+                <div class="d-flex justify-content-between">
+                    <a href="{{ list_url }}" class="btn btn-secondary">
+                        {% block back_label %}<i class="bi bi-arrow-left"></i> Retour{% endblock %}
+                    </a>
+
+                    <button type="submit" class="btn btn-success">
+                        {% block save_label %}<i class="bi bi-save"></i> Enregistrer{% endblock %}
+                    </button>
+                </div>
+
+            </form>
+
+        </div>
+    </div>
+
+</div>
+{% endblock %}

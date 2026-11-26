@@ -1,0 +1,12 @@
+<div class="mb-3">
+    <label class="form-label" for="{{ field.id_for_label }}">{{ label }}</label>
+    <div class="input-group has-validation">
+        <span class="input-group-text">
+            <i class="bi {{ icon }}"></i>
+        </span>
+        {{ field }}
+        {% for error in field.errors %}
+        <div class="invalid-feedback d-block">{{ error }}</div>
+        {% endfor %}
+    </div>
+</div>

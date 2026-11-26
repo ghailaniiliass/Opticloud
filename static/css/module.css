@@ -1,0 +1,342 @@
+/* Opti Cloud : pages des modules (liste). CSS repris de categorie_list.php (jalon J2). */
+body.page-list {
+    background: linear-gradient(135deg, #eef2ff, #f8fafc);
+    font-family: "Segoe UI", Arial, sans-serif;
+    color: #0f172a;
+}
+
+.page-wrapper {
+    width: 92%;
+    margin: 45px auto;
+}
+
+.hero-card {
+    background: linear-gradient(135deg, #0f172a, #1d4ed8);
+    color: white;
+    border-radius: 25px;
+    padding: 45px 50px;
+    box-shadow: 0 20px 45px rgba(15, 23, 42, 0.22);
+    margin-bottom: 30px;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-card::after {
+    content: "";
+    position: absolute;
+    width: 240px;
+    height: 240px;
+    border-radius: 50%;
+    background: rgba(56, 189, 248, 0.18);
+    right: -70px;
+    top: -80px;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.hero-icon {
+    width: 85px;
+    height: 85px;
+    min-width: 85px;
+    background: linear-gradient(135deg, #38bdf8, #2563eb);
+    border: 2px solid rgba(255,255,255,0.35);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 25px;
+    font-size: 40px;
+    color: white;
+    box-shadow: 0 12px 30px rgba(37, 99, 235, 0.35);
+}
+
+.hero-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.hero-card h2 {
+    font-weight: 800;
+    font-size: 40px;
+    margin-bottom: 10px;
+}
+
+.hero-card p {
+    color: #dbeafe;
+    font-size: 18px;
+    margin-bottom: 0;
+}
+
+.main-card {
+    border: none;
+    border-radius: 25px;
+    box-shadow: 0 18px 45px rgba(15, 23, 42, 0.10);
+    overflow: hidden;
+}
+
+.main-card-header {
+    background: white;
+    padding: 25px 30px;
+    border-bottom: 1px solid #e2e8f0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.main-card-header h4 {
+    font-weight: 800;
+    margin-bottom: 5px;
+    color: #0f172a;
+}
+
+.main-card-header small {
+    color: #64748b;
+}
+
+.header-actions {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.btn-add-custom {
+    background: linear-gradient(135deg, #2563eb, #06b6d4);
+    color: white;
+    border: none;
+    border-radius: 14px;
+    padding: 10px 16px;
+    font-weight: 600;
+    text-decoration: none;
+    box-shadow: 0 8px 20px rgba(37, 99, 235, 0.25);
+    transition: 0.25s;
+}
+
+.btn-print-custom {
+    background: linear-gradient(135deg, #f59e0b, #f97316);
+    color: white;
+    border: none;
+    border-radius: 14px;
+    padding: 10px 16px;
+    font-weight: 600;
+    text-decoration: none;
+    box-shadow: 0 8px 20px rgba(245, 158, 11, 0.25);
+    transition: 0.25s;
+}
+
+.btn-add-custom:hover,
+.btn-print-custom:hover {
+    transform: translateY(-3px);
+    color: white;
+}
+
+.stat-box {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    padding: 18px 20px;
+    border-radius: 18px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.stat-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 16px;
+    background: linear-gradient(135deg, #2563eb, #06b6d4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 24px;
+}
+
+.stat-box p {
+    margin: 0;
+    color: #64748b;
+    font-size: 14px;
+}
+
+.stat-box h3 {
+    margin: 0;
+    font-weight: 800;
+    color: #0f172a;
+}
+
+.table-container {
+    border-radius: 18px;
+    overflow: hidden;
+    border: 1px solid #e2e8f0;
+}
+
+.custom-table {
+    margin-bottom: 0;
+}
+
+.custom-table thead th {
+    background: #0f172a;
+    color: white;
+    padding: 16px;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border: none;
+}
+
+.custom-table tbody td {
+    padding: 18px 16px;
+    vertical-align: middle;
+    border-color: #e2e8f0;
+}
+
+.custom-table tbody tr {
+    transition: 0.25s;
+}
+
+.custom-table tbody tr:hover {
+    background: #eff6ff;
+}
+
+.id-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    background: #dbeafe;
+    color: #1d4ed8;
+    padding: 7px 13px;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 14px;
+}
+
+.category-name {
+    font-weight: 700;
+    color: #0f172a;
+}
+
+.category-sub {
+    font-size: 13px;
+    color: #64748b;
+}
+
+.action-btn {
+    width: 38px;
+    height: 38px;
+    border-radius: 12px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-decoration: none;
+    margin: 2px;
+    transition: 0.25s;
+}
+
+.edit-btn {
+    background: #16a34a;
+}
+
+.delete-btn {
+    background: #dc2626;
+}
+
+.action-btn:hover {
+    transform: translateY(-3px);
+    color: white;
+    box-shadow: 0 8px 18px rgba(15, 23, 42, 0.18);
+}
+
+.empty-state {
+    text-align: center;
+    padding: 50px;
+    color: #64748b;
+}
+
+.empty-state i {
+    font-size: 45px;
+    color: #94a3b8;
+    margin-bottom: 15px;
+}
+
+@media(max-width: 768px) {
+    .page-wrapper {
+        width: 95%;
+        margin-top: 25px;
+    }
+
+    .hero-card {
+        padding: 30px;
+    }
+
+    .hero-content {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 18px;
+    }
+
+    .hero-card h2 {
+        font-size: 30px;
+    }
+
+    .hero-card p {
+        font-size: 16px;
+    }
+
+    .main-card-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 18px;
+    }
+
+    .header-actions {
+        width: 100%;
+    }
+
+    .btn-add-custom,
+    .btn-print-custom {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+/* ---- Ajouts de J2 (le reste de ce fichier est repris à l'identique des pages PHP d'origine) ---- */
+
+/* Bouton discret « Retour au tableau de bord », présent sur toutes les pages des modules */
+.back-row {
+    display: flex;
+    margin-bottom: 14px;
+}
+
+.btn-back-dashboard {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 7px 14px;
+    border: 1px solid #cbd5e1;
+    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.7);
+    color: #475569;
+    font-size: 14px;
+    text-decoration: none;
+    transition: 0.25s;
+}
+
+.btn-back-dashboard:hover {
+    background: white;
+    border-color: #93c5fd;
+    color: #1d4ed8;
+}
+
+/* Contour de focus visible au clavier (accessibilité) */
+a:focus-visible,
+button:focus-visible,
+.form-control:focus-visible {
+    outline: 3px solid #93c5fd;
+    outline-offset: 2px;
+}

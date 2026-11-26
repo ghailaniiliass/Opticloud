@@ -1,0 +1,19 @@
+{% extends "layouts/module_form.html" %}
+
+{% block title %}{% if mode == 'add' %}Ajouter marque{% else %}Modifier Marque{% endif %}{% endblock %}
+
+{% block header_class %}{% if mode == 'add' %}bg-primary text-white{% else %}bg-warning text-dark{% endif %}{% endblock %}
+{% block header_icon %}{% if mode == 'add' %}bi-building{% else %}bi-pencil-square{% endif %}{% endblock %}
+{% block header_title %}{% if mode == 'add' %}Formulaire marque{% else %}Modifier Marque{% endif %}{% endblock %}
+
+{% block fields %}
+                {% if mode == 'add' %}
+                    {% include "partials/field_group.html" with field=form.idmarque icon="bi-hash" label="ID marque" %}
+                    {% include "partials/field_group.html" with field=form.nom icon="bi-tag" label="NOM Marque" %}
+                {% else %}
+                    {% include "partials/field_group.html" with field=form.idmarque icon="bi-hash" label="ID Marque" %}
+                    {% include "partials/field_group.html" with field=form.nom icon="bi-tag" label="Nom marque" %}
+                {% endif %}
+                {% include "partials/field_group.html" with field=form.pays icon="bi-tag" label="Pays" %}
+                {% include "partials/field_group.html" with field=form.description icon="bi-tag" label="Description" %}
+{% endblock %}

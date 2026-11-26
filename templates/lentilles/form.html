@@ -1,0 +1,37 @@
+{% extends "layouts/module_form.html" %}
+
+{% block title %}{% if mode == 'add' %}Ajouter lentille{% else %}Modifier Lentille{% endif %}{% endblock %}
+
+{% block header_class %}{% if mode == 'add' %}bg-primary text-white{% else %}bg-warning text-dark{% endif %}{% endblock %}
+{% block header_icon %}{% if mode == 'add' %}bi-eye{% else %}bi-pencil-square{% endif %}{% endblock %}
+{% block header_title %}{% if mode == 'add' %}Formulaire lentille{% else %}Modifier Lentille{% endif %}{% endblock %}
+
+{% block fields %}
+                {% if mode == 'add' %}
+                    {# Formulaire d'ajout d'origine : les sept premiers champs ont une icône. #}
+                    {% include "partials/field_group.html" with field=form.idlentille icon="bi-hash" label="ID lentille" %}
+                    {% include "partials/field_group.html" with field=form.nom icon="bi-tag" label="Nom" %}
+                    {% include "partials/field_group.html" with field=form.marque icon="bi-tag" label="Marque" %}
+                    {% include "partials/field_group.html" with field=form.type icon="bi-tag" label="Type" %}
+                    {% include "partials/field_group.html" with field=form.materiau icon="bi-tag" label="Matériau" %}
+                    {% include "partials/field_group.html" with field=form.correction icon="bi-eye" label="Correction" %}
+                    {% include "partials/field_group.html" with field=form.couleur icon="bi-palette" label="Couleur" %}
+                {% else %}
+                    {% include "partials/field_plain.html" with field=form.idlentille label="ID Lentille" %}
+                    {% include "partials/field_plain.html" with field=form.nom label="Nom" %}
+                    {% include "partials/field_plain.html" with field=form.marque label="Marque" %}
+                    {% include "partials/field_plain.html" with field=form.type label="Type" %}
+                    {% include "partials/field_plain.html" with field=form.materiau label="Matériau" %}
+                    {% include "partials/field_plain.html" with field=form.correction label="Correction" %}
+                    {% include "partials/field_plain.html" with field=form.couleur label="Couleur" %}
+                {% endif %}
+                {% include "partials/field_plain.html" with field=form.diametre label="Diamètre" %}
+                {% include "partials/field_plain.html" with field=form.rayon_courbure label="Rayon de courbure" %}
+                {% include "partials/field_plain.html" with field=form.puissance_min label="Puissance min" %}
+                {% include "partials/field_plain.html" with field=form.puissance_max label="Puissance max" %}
+                {% include "partials/field_plain.html" with field=form.prix label="Prix" %}
+                {% include "partials/field_plain.html" with field=form.stock label="Stock" %}
+                {# « ID fournisseur » est aussi présent à la modification : l'original l'oubliait et remettait le fournisseur à 0 à chaque modification. #}
+                {% include "partials/field_plain.html" with field=form.idfournisseur label="ID fournisseur" %}
+                {% include "partials/field_plain.html" with field=form.description label="Description" %}
+{% endblock %}

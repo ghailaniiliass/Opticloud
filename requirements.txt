@@ -1,5 +1,5 @@
-Django>=5.2,<5.3        # version LTS
-PyMySQL>=1.1            # connecteur MySQL / MariaDB pur Python (compatible Windows, Linux et Vercel sans compilation C)
-django-environ>=0.11    # lecture du fichier .env (aucun secret dans le code)
-reportlab>=4.2          # génération des PDF (jalon J2)
-whitenoise>=6.6         # distribution des fichiers statiques (production / Vercel dev)
+Django>=5.2,<5.3
+PyMySQL>=1.1
+django-environ>=0.11
+reportlab>=4.2
+whitenoise>=6.6

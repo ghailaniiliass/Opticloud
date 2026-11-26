@@ -1,0 +1,22 @@
+{% extends "layouts/module_form.html" %}
+
+{% block title %}{% if mode == 'add' %}Ajouter Fournisseur{% else %}Modifier Fournisseur{% endif %}{% endblock %}
+
+{% block header_class %}{% if mode == 'add' %}bg-primary text-white{% else %}bg-warning text-dark{% endif %}{% endblock %}
+{% block header_icon %}{% if mode == 'add' %}bi-building{% else %}bi-pencil-square{% endif %}{% endblock %}
+{% block header_title %}{% if mode == 'add' %}Formulaire Fournisseur{% else %}Modifier Fournisseur{% endif %}{% endblock %}
+
+{% block fields %}
+                {% if mode == 'add' %}
+                    {% include "partials/field_group.html" with field=form.idfournisseur icon="bi-hash" label="ID Fournisseur" %}
+                    {% include "partials/field_group.html" with field=form.nom icon="bi-tag" label="NOM Fournisseur" %}
+                {% else %}
+                    {% include "partials/field_group.html" with field=form.idfournisseur icon="bi-hash" label="ID Fournisseur" %}
+                    {% include "partials/field_group.html" with field=form.nom icon="bi-tag" label="Nom fournisseur" %}
+                {% endif %}
+                {% include "partials/field_group.html" with field=form.responsable icon="bi-tag" label="Responsable" %}
+                {% include "partials/field_group.html" with field=form.adresse icon="bi-tag" label="Adresse" %}
+                {% include "partials/field_group.html" with field=form.ville icon="bi-tag" label="Ville" %}
+                {% include "partials/field_group.html" with field=form.telephone icon="bi-tag" label="Téléphone" %}
+                {% include "partials/field_group.html" with field=form.email icon="bi-tag" label="Email" %}
+{% endblock %}

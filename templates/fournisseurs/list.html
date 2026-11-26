@@ -1,0 +1,99 @@
+{% extends "layouts/module_list.html" %}
+{% load static %}
+
+{% block title %}Liste des fournisseurs{% endblock %}
+{% block body_class %}page-list page-fournisseurs{% endblock %}
+{% block head_css %}{{ block.super }}<link href="{% static 'css/module_fournisseurs.css' %}" rel="stylesheet">{% endblock %}
+
+{% block hero_icon %}bi-truck{% endblock %}
+{% block hero_title %}Gestion des fournisseurs{% endblock %}
+{% block hero_text %}Gérez vos fournisseurs, responsables, contacts et informations commerciales facilement.{% endblock %}
+
+{% block list_title %}Liste des fournisseurs{% endblock %}
+{% block list_subtitle %}Consultez, modifiez ou supprimez les fournisseurs existants.{% endblock %}
+{% block add_url %}{% url 'fournisseurs:add' %}{% endblock %}
+{% block print_url %}{% url 'fournisseurs:print' %}{% endblock %}
+
+{% block stat_icon %}bi-building{% endblock %}
+{% block stat_label %}Nombre de fournisseurs{% endblock %}
+
+{% block table_head %}
+                            <th>ID fournisseur</th>
+                            <th>Nom fournisseur</th>
+                            <th>Responsable</th>
+                            <th>Adresse</th>
+                            <th>Ville</th>
+                            <th>Téléphone</th>
+                            <th>Email</th>
+                            <th width="140">Actions</th>
+{% endblock %}
+
+{% block table_rows %}
+                            {% for fournisseur in objects %}
+                                <tr>
+                                    <td class="text-center">
+                                        <span class="id-pill">
+                                            <i class="bi bi-hash"></i>
+                                            {{ fournisseur.idfournisseur }}
+                                        </span>
+                                    </td>
+                                    <td>
+                                        <div class="supplier-name">
+                                            {{ fournisseur.nom|default_if_none:"" }}
+                                        </div>
+                                        <div class="supplier-sub">
+                                            Fournisseur optique
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <span class="info-text">
+                                            <i class="bi bi-person"></i>
+                                            {{ fournisseur.responsable|default_if_none:"" }}
+                                        </span>
+                                    </td>
+                                    <td>
+                                        <span class="info-text">
+                                            <i class="bi bi-geo-alt"></i>
+                                            {{ fournisseur.adresse|default_if_none:"" }}
+                                        </span>
+                                    </td>
+                                    <td>
+                                        <span class="info-text">
+                                            {{ fournisseur.ville|default_if_none:"" }}
+                                        </span>
+                                    </td>
+                                    <td>
+                                        <span class="info-text">
+                                            <i class="bi bi-telephone"></i>
+                                            {{ fournisseur.telephone|default_if_none:"" }}
+                                        </span>
+                                    </td>
+                                    <td>
+                                        <span class="email-text">
+                                            <i class="bi bi-envelope"></i>
+                                            {{ fournisseur.email|default_if_none:"" }}
+                                        </span>
+                                    </td>
+                                    <td class="text-center">
+                                        <!-- Modifier -->
+                                        <a href="{% url 'fournisseurs:edit' fournisseur.pk %}"
+                                           class="action-btn edit-btn"
+                                           title="Modifier">
+                                            <i class="bi bi-pencil-square"></i>
+                                        </a>
+                                        <!-- Supprimer -->
+                                        <a href="{% url 'fournisseurs:delete' fournisseur.pk %}"
+                                           class="action-btn delete-btn"
+                                           title="Supprimer"
+                                           data-confirm="Confirmer la suppression ?">
+                                            <i class="bi bi-trash"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                            {% endfor %}
+{% endblock %}
+
+{% block colspan %}8{% endblock %}
+{% block empty_icon %}bi-building-x{% endblock %}
+{% block empty_title %}Aucun fournisseur trouvé{% endblock %}
+{% block empty_text %}Commencez par ajouter un nouveau fournisseur.{% endblock %}

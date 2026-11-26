@@ -1,0 +1,26 @@
+/* Opti Cloud : règles propres à la liste des fournisseurs, reprises de Fornisseurs_list.php (jalon J3).
+   Limitées à la page Fournisseurs pour ne pas modifier l'aspect des autres modules. */
+body.page-fournisseurs .custom-table thead th {
+    white-space: nowrap;
+}
+
+.supplier-name {
+    font-weight: 700;
+    color: #0f172a;
+}
+
+.supplier-sub {
+    font-size: 13px;
+    color: #64748b;
+}
+
+.info-text {
+    color: #334155;
+    font-size: 14px;
+}
+
+.email-text {
+    color: #2563eb;
+    font-weight: 600;
+    font-size: 14px;
+}

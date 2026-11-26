@@ -1,0 +1,130 @@
+{% extends "base_root.html" %}
+{% load static %}
+{% block title %}Opti Cloud - Tableau de bord{% endblock %}
+
+{% block head_css %}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+    <link rel="stylesheet" href="{% static 'css/dashboard.css' %}">
+{% endblock %}
+
+{% block body %}
+<div class="layout">
+    <aside class="sidebar">
+        <div class="brand">
+            <div class="brand-icon"><i class="fa-solid fa-glasses"></i></div>
+            <div><h1>Opti Cloud</h1><span>Gestion d'optique</span></div>
+        </div>
+
+        <div class="side-section">Navigation</div>
+        <a href="{% url 'dashboard:home' %}" class="side-link active"><i class="fa-solid fa-chart-line"></i> Tableau de bord</a>
+        <a href="{% url 'fournisseurs:list' %}" class="side-link"><i class="fa-solid fa-truck-fast"></i> Fournisseurs</a>
+        <a href="{% url 'montures:list' %}" class="side-link"><i class="fa-solid fa-glasses"></i> Montures</a>
+        <a href="{% url 'verres:list' %}" class="side-link"><i class="fa-solid fa-eye"></i> Verres</a>
+        <a href="{% url 'lentilles:list' %}" class="side-link"><i class="fa-solid fa-circle-dot"></i> Lentilles</a>
+
+        <div class="side-section">Organisation</div>
+        <a href="{% url 'marques:list' %}" class="side-link"><i class="fa-solid fa-tags"></i> Marques</a>
+        <a href="{% url 'categories:list' %}" class="side-link"><i class="fa-solid fa-layer-group"></i> Catégories</a>
+
+        <div class="sidebar-card">
+            <h3>Gestion plus rapide</h3>
+            <p>Accédez à vos produits, fournisseurs et marques depuis un seul tableau de bord clair.</p>
+        </div>
+    </aside>
+
+    <main class="main">
+        <div class="topbar">
+            <div>
+                <h2>Tableau de bord</h2>
+                <p>Bienvenue dans votre espace professionnel Opti Cloud.</p>
+            </div>
+            <div class="top-actions">
+                <div class="search-box">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <input type="text" placeholder="Recherche rapide..." aria-label="Recherche rapide">
+                </div>
+                <div class="date-pill"><i class="fa-regular fa-calendar"></i> {% now "d/m/Y" %}</div>
+            </div>
+        </div>
+
+        <section class="hero">
+            <div class="hero-left">
+                <div class="badge"><i class="fa-solid fa-bolt"></i> Plateforme optique moderne</div>
+                <h1>Gérez votre boutique d'optique avec plus de clarté.</h1>
+                <p>
+                    Opti Cloud centralise vos fournisseurs, montures, marques, verres et lentilles
+                    dans une interface rapide, élégante et facile à utiliser.
+                </p>
+                <div class="hero-buttons">
+                    <a href="{% url 'montures:list' %}" class="btn-primary"><i class="fa-solid fa-glasses"></i> Voir les montures</a>
+                    <a href="{% url 'fournisseurs:list' %}" class="btn-light"><i class="fa-solid fa-truck"></i> Gérer fournisseurs</a>
+                </div>
+            </div>
+
+            <div class="hero-right">
+                <div class="mini-card">
+                    <i class="fa-solid fa-gauge-high"></i>
+                    <h3>Accès rapide</h3>
+                    <p>Tout est organisé pour ouvrir chaque liste en un seul clic.</p>
+                </div>
+                <div class="mini-card">
+                    <i class="fa-solid fa-shield-halved"></i>
+                    <h3>Données structurées</h3>
+                    <p>Suivez les éléments essentiels de votre catalogue optique.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="stats">
+            <div class="stat-card"><div class="stat-icon blue"><i class="fa-solid fa-truck-fast"></i></div><h3>Fournisseurs</h3><div class="number">{{ nb_fournisseurs }}</div></div>
+            <div class="stat-card"><div class="stat-icon green"><i class="fa-solid fa-glasses"></i></div><h3>Montures</h3><div class="number">{{ nb_montures }}</div></div>
+            <div class="stat-card"><div class="stat-icon orange"><i class="fa-solid fa-tags"></i></div><h3>Marques</h3><div class="number">{{ nb_marques }}</div></div>
+            <div class="stat-card"><div class="stat-icon purple"><i class="fa-solid fa-eye"></i></div><h3>Verres</h3><div class="number">{{ nb_verres }}</div></div>
+            <div class="stat-card"><div class="stat-icon pink"><i class="fa-solid fa-circle-dot"></i></div><h3>Lentilles</h3><div class="number">{{ nb_lentilles }}</div></div>
+        </section>
+
+        <section>
+            <div class="section-header">
+                <div>
+                    <h2>Accès aux modules</h2>
+                    <p>Sélectionnez une rubrique pour consulter ou gérer les données.</p>
+                </div>
+            </div>
+
+            <div class="modules">
+                <a href="{% url 'fournisseurs:list' %}" class="module">
+                    <div class="module-top"><div class="module-icon blue"><i class="fa-solid fa-truck-fast"></i></div><div class="arrow"><i class="fa-solid fa-arrow-right"></i></div></div>
+                    <h3>Fournisseurs</h3><p>Consultez et organisez vos fournisseurs partenaires.</p><small>Ouvrir la liste</small>
+                </a>
+
+                <a href="{% url 'montures:list' %}" class="module">
+                    <div class="module-top"><div class="module-icon green"><i class="fa-solid fa-glasses"></i></div><div class="arrow"><i class="fa-solid fa-arrow-right"></i></div></div>
+                    <h3>Montures</h3><p>Accédez rapidement au catalogue des montures.</p><small>Ouvrir la liste</small>
+                </a>
+
+                <a href="{% url 'marques:list' %}" class="module">
+                    <div class="module-top"><div class="module-icon orange"><i class="fa-solid fa-tags"></i></div><div class="arrow"><i class="fa-solid fa-arrow-right"></i></div></div>
+                    <h3>Marques</h3><p>Gérez les marques associées à vos produits.</p><small>Ouvrir la liste</small>
+                </a>
+
+                <a href="{% url 'verres:list' %}" class="module">
+                    <div class="module-top"><div class="module-icon purple"><i class="fa-solid fa-eye"></i></div><div class="arrow"><i class="fa-solid fa-arrow-right"></i></div></div>
+                    <h3>Verres</h3><p>Visualisez et gérez vos verres disponibles.</p><small>Ouvrir la liste</small>
+                </a>
+
+                <a href="{% url 'lentilles:list' %}" class="module">
+                    <div class="module-top"><div class="module-icon pink"><i class="fa-solid fa-circle-dot"></i></div><div class="arrow"><i class="fa-solid fa-arrow-right"></i></div></div>
+                    <h3>Lentilles</h3><p>Consultez les lentilles et leurs informations.</p><small>Ouvrir la liste</small>
+                </a>
+
+                <a href="{% url 'categories:list' %}" class="module">
+                    <div class="module-top"><div class="module-icon blue"><i class="fa-solid fa-layer-group"></i></div><div class="arrow"><i class="fa-solid fa-arrow-right"></i></div></div>
+                    <h3>Catégories</h3><p>Classez vos produits par catégories claires.</p><small>Ouvrir la liste</small>
+                </a>
+            </div>
+        </section>
+
+        <footer>Opti Cloud © {% now "Y" %} — Interface de gestion d'optique professionnelle.</footer>
+    </main>
+</div>
+{% endblock %}

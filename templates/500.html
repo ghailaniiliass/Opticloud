@@ -1,0 +1,22 @@
+{% extends "base_module.html" %}
+
+{% block title %}Une erreur est survenue - Opti Cloud{% endblock %}
+{% block body_class %}page-list{% endblock %}
+
+{% block body %}
+<div class="page-wrapper">
+
+    {% include "partials/back_to_dashboard.html" %}
+
+    <div class="card main-card">
+        <div class="card-body p-4">
+            <div class="empty-state">
+                <i class="bi bi-exclamation-triangle"></i>
+                <h5>Une erreur est survenue</h5>
+                <p>Le serveur a rencontré un problème. Réessayez dans un instant.</p>
+            </div>
+        </div>
+    </div>
+
+</div>
+{% endblock %}

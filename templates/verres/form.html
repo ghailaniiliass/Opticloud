@@ -1,0 +1,22 @@
+{% extends "layouts/module_form.html" %}
+
+{% block title %}{% if mode == 'add' %}Ajouter Verre{% else %}Modifier Verre{% endif %}{% endblock %}
+
+{% block header_class %}{% if mode == 'add' %}bg-primary text-white{% else %}bg-warning text-dark{% endif %}{% endblock %}
+{% block header_icon %}{% if mode == 'add' %}bi-box{% else %}bi-pencil-square{% endif %}{% endblock %}
+{% block header_title %}{% if mode == 'add' %}Ajouter Verre{% else %}Modifier Verre{% endif %}{% endblock %}
+
+{# Le formulaire des verres n'a pas d'icônes dans l'original : ni dans les champs, ni sur les boutons. #}
+{% block back_label %}Retour{% endblock %}
+{% block save_label %}Enregistrer{% endblock %}
+
+{% block fields %}
+                {% include "partials/field_plain.html" with field=form.code_verre label="Code Verre" %}
+                {% include "partials/field_plain.html" with field=form.nom label="Nom" %}
+                {% include "partials/field_plain.html" with field=form.type_verre label="Type Verre" %}
+                {% include "partials/field_plain.html" with field=form.indice label="Indice" %}
+                {% include "partials/field_plain.html" with field=form.traitement label="Traitement" %}
+                {% include "partials/field_plain.html" with field=form.prix label="Prix" %}
+                {% include "partials/field_plain.html" with field=form.code_fournisseur label="Code Fournisseur" %}
+                {% include "partials/field_plain.html" with field=form.description label="Description" %}
+{% endblock %}

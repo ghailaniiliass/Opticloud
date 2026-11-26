@@ -1,0 +1,42 @@
+/* Opti Cloud : règles propres à la liste des marques, reprises de marque_list.php (jalon J3).
+   Limitées à la page Marques pour ne pas modifier l'aspect des autres modules. */
+body.page-marques .custom-table thead th {
+    white-space: nowrap;
+}
+
+body.page-marques .custom-table tbody td {
+    font-size: 14px;
+}
+
+body.page-marques .id-pill {
+    white-space: nowrap;
+}
+
+.brand-name {
+    font-weight: 800;
+    color: #0f172a;
+}
+
+.brand-sub {
+    font-size: 13px;
+    color: #64748b;
+}
+
+.country-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    background: #dcfce7;
+    color: #166534;
+    padding: 7px 13px;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 14px;
+    white-space: nowrap;
+}
+
+.description-cell {
+    color: #475569;
+    font-size: 14px;
+    line-height: 23px;
+}

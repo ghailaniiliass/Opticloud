@@ -1,0 +1,119 @@
+/* Opti Cloud : règles propres à la liste « verres », reprises de verre_list.php (jalon J4).
+   Limitées à la page de ce module pour ne pas modifier l'aspect des autres. */
+
+body.page-verres .page-wrapper {
+    width: 95%;
+    margin: 45px auto;
+}
+
+body.page-verres .custom-table thead th {
+    background: #0f172a;
+    color: white;
+    padding: 16px;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border: none;
+    white-space: nowrap;
+}
+
+body.page-verres .custom-table tbody td {
+    padding: 18px 16px;
+    vertical-align: middle;
+    border-color: #e2e8f0;
+    font-size: 14px;
+}
+
+body.page-verres .code-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    background: #dbeafe;
+    color: #1d4ed8;
+    padding: 7px 13px;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 14px;
+    white-space: nowrap;
+}
+
+body.page-verres .glass-name {
+    font-weight: 800;
+    color: #0f172a;
+    white-space: nowrap;
+}
+
+body.page-verres .glass-sub {
+    font-size: 13px;
+    color: #64748b;
+}
+
+body.page-verres .type-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    background: #e0f2fe;
+    color: #0369a1;
+    padding: 7px 13px;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 14px;
+    white-space: nowrap;
+}
+
+body.page-verres .indice-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    background: #ede9fe;
+    color: #6d28d9;
+    padding: 7px 13px;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 14px;
+    white-space: nowrap;
+}
+
+body.page-verres .traitement-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    background: #f1f5f9;
+    color: #334155;
+    padding: 7px 13px;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 14px;
+    white-space: nowrap;
+}
+
+body.page-verres .price-pill {
+    display: inline-block;
+    background: #fef3c7;
+    color: #92400e;
+    padding: 7px 13px;
+    border-radius: 50px;
+    font-weight: 800;
+    font-size: 14px;
+    white-space: nowrap;
+}
+
+body.page-verres .supplier-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    background: #dcfce7;
+    color: #166534;
+    padding: 7px 13px;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 14px;
+    white-space: nowrap;
+}
+
+body.page-verres .description-cell {
+    color: #475569;
+    font-size: 14px;
+    line-height: 23px;
+    max-width: 260px;
+}

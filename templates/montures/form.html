@@ -1,0 +1,22 @@
+{% extends "layouts/module_form.html" %}
+
+{% block title %}{% if mode == 'add' %}Ajouter Monture{% else %}Modifier Monture{% endif %}{% endblock %}
+
+{% block header_class %}{% if mode == 'add' %}bg-primary text-white{% else %}bg-warning text-dark{% endif %}{% endblock %}
+{% block header_icon %}{% if mode == 'add' %}bi-eyeglasses{% else %}bi-pencil-square{% endif %}{% endblock %}
+{% block header_title %}{% if mode == 'add' %}Formulaire Monture{% else %}Modifier Monture{% endif %}{% endblock %}
+
+{% block fields %}
+                {% include "partials/field_group.html" with field=form.idmonture icon="bi-hash" label="ID Monture" %}
+                {% include "partials/field_plain.html" with field=form.reference label="Référence" %}
+                {% include "partials/field_plain.html" with field=form.modele label="Modèle" %}
+                {% include "partials/field_plain.html" with field=form.couleur label="Couleur" %}
+                {% include "partials/field_plain.html" with field=form.materiau label="Matériau" %}
+                {% include "partials/field_plain.html" with field=form.genre label="Genre" %}
+                {% include "partials/field_plain.html" with field=form.prix label="Prix" %}
+                {% include "partials/field_plain.html" with field=form.stock label="Stock" %}
+                {% include "partials/field_plain.html" with field=form.idmarque label="Marque (ID)" %}
+                {% include "partials/field_plain.html" with field=form.idfournisseur label="Fournisseur (ID)" %}
+                {% include "partials/field_plain.html" with field=form.idcategorie label="Catégorie (ID)" %}
+                {% include "partials/field_plain.html" with field=form.description label="Description" %}
+{% endblock %}

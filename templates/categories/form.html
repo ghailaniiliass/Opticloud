@@ -1,0 +1,17 @@
+{% extends "layouts/module_form.html" %}
+
+{% block title %}{% if mode == 'add' %}Ajouter catégorie{% else %}Modifier catégorie{% endif %}{% endblock %}
+
+{% block header_class %}{% if mode == 'add' %}bg-primary text-white{% else %}bg-warning text-dark{% endif %}{% endblock %}
+{% block header_icon %}{% if mode == 'add' %}bi-building{% else %}bi-pencil-square{% endif %}{% endblock %}
+{% block header_title %}{% if mode == 'add' %}Formulaire Catégorie{% else %}Modifier catégorie{% endif %}{% endblock %}
+
+{% block fields %}
+                {% if mode == 'add' %}
+                    {% include "partials/field_group.html" with field=form.id_categorie icon="bi-hash" label="ID CATÉGORIE" %}
+                    {% include "partials/field_group.html" with field=form.nom_categorie icon="bi-tag" label="NOM CATÉGORIE" %}
+                {% else %}
+                    {% include "partials/field_group.html" with field=form.id_categorie icon="bi-hash" label="ID catégorie" %}
+                    {% include "partials/field_group.html" with field=form.nom_categorie icon="bi-tag" label="Nom catégorie" %}
+                {% endif %}
+{% endblock %}

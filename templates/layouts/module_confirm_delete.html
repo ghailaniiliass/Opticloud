@@ -1,0 +1,47 @@
+{% extends "base_module.html" %}
+
+{% block title %}Confirmation Suppression{% endblock %}
+{% block body_class %}bg-light{% endblock %}
+
+{% block body %}
+<div class="container mt-5">
+
+    <div class="col-md-6 mx-auto">
+        {% include "partials/back_to_dashboard.html" %}
+    </div>
+
+    <div class="card shadow col-md-6 mx-auto border-danger">
+
+        <div class="card-header bg-danger text-white">
+            <h4 class="mb-0">
+                <i class="bi bi-exclamation-triangle-fill"></i> Confirmation de suppression
+            </h4>
+        </div>
+
+        <div class="card-body">
+
+            <div class="alert alert-warning">
+                <i class="bi bi-info-circle"></i>
+                {% block warning %}{% endblock %}
+            </div>
+
+            {% block details %}{% endblock %}
+
+            <form method="post" action="{{ delete_url }}" class="d-flex justify-content-between mt-4">
+                {% csrf_token %}
+
+                <button type="submit" class="btn btn-danger">
+                    <i class="bi bi-trash"></i> Oui, Supprimer
+                </button>
+
+                <a href="{{ list_url }}" class="btn btn-secondary">
+                    <i class="bi bi-x-circle"></i> Annuler
+                </a>
+
+            </form>
+
+        </div>
+    </div>
+
+</div>
+{% endblock %}

@@ -1,0 +1,103 @@
+{% extends "layouts/module_list.html" %}
+{% load static %}
+{% load l10n %}
+
+{% block title %}Liste des verres{% endblock %}
+{% block body_class %}page-list page-verres{% endblock %}
+{% block head_css %}{{ block.super }}<link href="{% static 'css/module_verres.css' %}" rel="stylesheet">{% endblock %}
+
+{% block hero_icon %}bi-eye{% endblock %}
+{% block hero_title %}Gestion des verres{% endblock %}
+{% block hero_text %}Gérez les verres optiques, types, indices, traitements, prix et fournisseurs.{% endblock %}
+
+{% block list_title %}Liste des verres{% endblock %}
+{% block list_subtitle %}Consultez, modifiez ou supprimez les verres existants.{% endblock %}
+{% block add_url %}{% url 'verres:add' %}{% endblock %}
+{% block print_url %}{% url 'verres:print' %}{% endblock %}
+
+{% block stat_icon %}bi-eye{% endblock %}
+{% block stat_label %}Nombre de verres{% endblock %}
+
+{% block table_head %}
+                            <th>Code verre</th>
+                            <th>Nom</th>
+                            <th>Type</th>
+                            <th>Indice</th>
+                            <th>Traitement</th>
+                            <th>Prix</th>
+                            <th>Fournisseur</th>
+                            <th>Description</th>
+                            <th width="140">Actions</th>
+{% endblock %}
+
+{% block table_rows %}
+                            {% for verre in objects %}
+                                <tr>
+                                    <td class="text-center">
+                                        <span class="code-pill">
+                                            <i class="bi bi-hash"></i>
+                                            {{ verre.code_verre }}
+                                        </span>
+                                    </td>
+                                    <td>
+                                        <div class="glass-name">
+                                            {{ verre.nom|default_if_none:"" }}
+                                        </div>
+                                        <div class="glass-sub">
+                                            Verre optique
+                                        </div>
+                                    </td>
+                                    <td class="text-center">
+                                        <span class="type-pill">
+                                            {{ verre.type_verre|default_if_none:"" }}
+                                        </span>
+                                    </td>
+                                    <td class="text-center">
+                                        <span class="indice-pill">
+                                            {{ verre.indice|default_if_none:"" }}
+                                        </span>
+                                    </td>
+                                    <td class="text-center">
+                                        <span class="traitement-pill">
+                                            {{ verre.traitement|default_if_none:"" }}
+                                        </span>
+                                    </td>
+                                    <td class="text-center">
+                                        <span class="price-pill">
+                                            {{ verre.prix|default_if_none:""|unlocalize }} DH
+                                        </span>
+                                    </td>
+                                    <td class="text-center">
+                                        <span class="supplier-pill">
+                                            <i class="bi bi-building"></i>
+                                            {{ verre.code_fournisseur|default_if_none:"" }}
+                                        </span>
+                                    </td>
+                                    <td>
+                                        <div class="description-cell">
+                                            {{ verre.description|default_if_none:"" }}
+                                        </div>
+                                    </td>
+                                    <td class="text-center">
+                                        <!-- Modifier -->
+                                        <a href="{% url 'verres:edit' verre.pk %}"
+                                           class="action-btn edit-btn"
+                                           title="Modifier">
+                                            <i class="bi bi-pencil-square"></i>
+                                        </a>
+                                        <!-- Supprimer -->
+                                        <a href="{% url 'verres:delete' verre.pk %}"
+                                           class="action-btn delete-btn"
+                                           title="Supprimer"
+                                           data-confirm="Confirmer la suppression ?">
+                                            <i class="bi bi-trash"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                            {% endfor %}
+{% endblock %}
+
+{% block colspan %}9{% endblock %}
+{% block empty_icon %}bi-eye-slash{% endblock %}
+{% block empty_title %}Aucun verre trouvé{% endblock %}
+{% block empty_text %}Commencez par ajouter un nouveau verre.{% endblock %}
